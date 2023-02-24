@@ -1,0 +1,8 @@
+com/bcefit/projet/exposition/security/SecurityConfiguration.class
+com/bcefit/projet/exposition/user/dto/GenreMovieDto.class
+com/bcefit/projet/exposition/Application.class
+com/bcefit/projet/exposition/user/dto/MessageExceptionDto.class
+com/bcefit/projet/exposition/security/JWTAuthorizationFilter.class
+com/bcefit/projet/exposition/user/exceptionhandler/GlobalExceptionHandler.class
+com/bcefit/projet/exposition/user/mapper/GenreMovieMapper.class
+com/bcefit/projet/exposition/user/rest/GenreMovieAPI.class

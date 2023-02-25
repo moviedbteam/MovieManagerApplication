@@ -1,10 +1,7 @@
 package com.bcefit.projet.exposition.user.mapper;
 
 import com.bcefit.projet.domain.user.GenreMovie;
-import com.bcefit.projet.domain.user.GenreTv;
 import com.bcefit.projet.exposition.user.dto.GenreMovieDto;
-import com.bcefit.projet.exposition.user.dto.GenreMovieUserDto;
-import com.bcefit.projet.exposition.user.dto.GenreTvDto;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;

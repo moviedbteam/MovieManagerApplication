@@ -17,22 +17,22 @@ public class UserAccountDto {
     private boolean enableAccount;
 
 
-    Set<GenreMovieUserDto> genreMovieUserDtoSet;
+    Set<GenreMovieDto> genreMovieDtoSet;
 
-    Set<GenreTvUserDto> genreTvUserDtoSet;
+    Set<GenreTvDto> genreTvDtoSet;
 
     public UserAccountDto() {
     }
 
-    public UserAccountDto(Long idUser, String userName, String email, Integer birthYear, boolean adultContent, boolean enableAccount, Set<GenreMovieUserDto> genreMovieUserDtoSet, Set<GenreTvUserDto> genreTvUserDtoSet) {
+    public UserAccountDto(Long idUser, String userName, String email, Integer birthYear, boolean adultContent, boolean enableAccount, Set<GenreMovieDto> genreMovieDtoSet, Set<GenreTvDto> genreTvDtoSet) {
         this.idUser = idUser;
         this.userName = userName;
         this.email = email;
         this.birthYear = birthYear;
         this.adultContent = adultContent;
         this.enableAccount = enableAccount;
-        this.genreMovieUserDtoSet = genreMovieUserDtoSet;
-        this.genreTvUserDtoSet = genreTvUserDtoSet;
+        this.genreMovieDtoSet = genreMovieDtoSet;
+        this.genreTvDtoSet = genreTvDtoSet;
     }
 
     public Long getIdUser() {
@@ -83,45 +83,6 @@ public class UserAccountDto {
         this.enableAccount = enableAccount;
     }
 
-    public Set<GenreMovieUserDto> getGenreMovieUserDtoSet() {
-        return genreMovieUserDtoSet;
-    }
 
-    public void setGenreMovieUserDtoSet(Set<GenreMovieUserDto> genreMovieUserDtoSet) {
-        this.genreMovieUserDtoSet = genreMovieUserDtoSet;
-    }
 
-    public Set<GenreTvUserDto> getGenreTvUserDtoSet() {
-        return genreTvUserDtoSet;
-    }
-
-    public void setGenreTvUserDtoSet(Set<GenreTvUserDto> genreTvUserDtoSet) {
-        this.genreTvUserDtoSet = genreTvUserDtoSet;
-    }
-
-    public void addGenreMovie(GenreMovieUserDto genreMovieUserDto){
-        this.genreMovieUserDtoSet.add(genreMovieUserDto);
-        genreMovieUserDto.getUserAccountsDto().add(this);
-    }
-
-    public void addGenreTv(GenreTvUserDto genreTvUserDto){
-        this.genreTvUserDtoSet.add(genreTvUserDto);
-        genreTvUserDto.getUserAccountsDto().add(this);
-    }
-
-    public void removeGenreMovie(Long id){
-        GenreMovieUserDto genreMovieUserDto = this.genreMovieUserDtoSet.stream().filter(t-> t.getId() == id).findFirst().orElse(null);
-        if (genreMovieUserDto != null){
-            this.genreMovieUserDtoSet.remove(genreMovieUserDto);
-            genreMovieUserDto.getUserAccountsDto().remove(this);
-        }
-    }
-
-    public void removeGenreTv(Long id){
-        GenreTvUserDto genreTvUserDto = this.genreTvUserDtoSet.stream().filter(t-> t.getId() == id).findFirst().orElse(null);
-        if (genreTvUserDto != null){
-            this.genreTvUserDtoSet.remove(genreTvUserDto);
-            genreTvUserDto.getUserAccountsDto().remove(this);
-        }
-    }
 }

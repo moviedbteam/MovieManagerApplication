@@ -15,6 +15,8 @@ public class UserAccountMapper {
     @Autowired
     GenreTvMapper tvMapper;
 
+
+
     public UserAccountDto convertEntityToDto(UserAccount entity){
         UserAccountDto dto = new UserAccountDto();
         dto.setIdUser(entity.getIdUser());
@@ -36,4 +38,8 @@ public class UserAccountMapper {
         entity.setBirthYear(dto.getBirthYear());
         return entity;
     }
+
+
+
+
 }

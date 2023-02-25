@@ -1,10 +1,8 @@
 package com.bcefit.projet.domain.user;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 public class UserAccount {
@@ -131,9 +129,6 @@ public class UserAccount {
         }
     }
 
-    public Set<GenreMovie> getGenreMovieSet() {
-        return genreMovieSet;
-    }
 
     public void setGenreMovieSet(Set<GenreMovie> genreMovieSet) {
         this.genreMovieSet = genreMovieSet;

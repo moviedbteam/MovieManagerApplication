@@ -42,6 +42,16 @@ public class UserAccount {
             inverseJoinColumns = { @JoinColumn(name = "id") })
     private Set<GenreTv> genreTvSet= new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.EAGER,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    @JoinTable(name = "user_account_streaming_subscription",
+            joinColumns =  { @JoinColumn(name = "id_user") },
+            inverseJoinColumns = { @JoinColumn(name = "id") })
+    private Set<StreamingSubscription> streamingSubscriptionSet= new HashSet<>();
+
     public Long getIdUser() {
         return idUser;
     }
@@ -60,6 +70,18 @@ public class UserAccount {
         this.birthYear = birthYear;
         this.adultContent = adultContent;
         this.enableAccount = enableAccount;
+    }
+
+    public UserAccount(Long idUser, String userName, String email, Integer birthYear, boolean adultContent, boolean enableAccount, Set<GenreMovie> genreMovieSet, Set<GenreTv> genreTvSet, Set<StreamingSubscription> streamingSubscriptionSet) {
+        this.idUser = idUser;
+        this.userName = userName;
+        this.email = email;
+        this.birthYear = birthYear;
+        this.adultContent = adultContent;
+        this.enableAccount = enableAccount;
+        this.genreMovieSet = genreMovieSet;
+        this.genreTvSet = genreTvSet;
+        this.streamingSubscriptionSet = streamingSubscriptionSet;
     }
 
     public String getUserName() {
@@ -102,34 +124,6 @@ public class UserAccount {
         this.enableAccount = enableAccount;
     }
 
-/*
-    public void addGenreMovie(GenreMovie genreMovie){
-        this.genreMovieSet.add(genreMovie);
-        genreMovie.getUserAccounts().add(this);
-    }
-
-    public void addGenreTv(GenreTv genreTv){
-        this.genreTvSet.add(genreTv);
-        genreTv.getUserAccounts().add(this);
-    }
-
-    public void removeGenreMovie(Long id){
-        GenreMovie genreMovie = this.genreMovieSet.stream().filter(t-> t.getId() == id).findFirst().orElse(null);
-        if (genreMovie != null){
-            this.genreMovieSet.remove(genreMovie);
-            genreMovie.getUserAccounts().remove(this);
-        }
-    }
-
-    public void removeGenreTv(Long id){
-        GenreTv genreTv = this.genreTvSet.stream().filter(t-> t.getId() == id).findFirst().orElse(null);
-        if (genreTv != null){
-            this.genreTvSet.remove(genreTv);
-            genreTv.getUserAccounts().remove(this);
-        }
-    }
-*/
-
     public void setGenreMovieSet(Set<GenreMovie> genreMovieSet) {
         this.genreMovieSet = genreMovieSet;
     }
@@ -144,6 +138,14 @@ public class UserAccount {
 
     public Set<GenreMovie> getGenreMovieSet() {
         return genreMovieSet;
+    }
+
+    public Set<StreamingSubscription> getStreamingSubscriptionSet() {
+        return streamingSubscriptionSet;
+    }
+
+    public void setStreamingSubscriptionSet(Set<StreamingSubscription> streamingSubscriptionSet) {
+        this.streamingSubscriptionSet = streamingSubscriptionSet;
     }
 }
 

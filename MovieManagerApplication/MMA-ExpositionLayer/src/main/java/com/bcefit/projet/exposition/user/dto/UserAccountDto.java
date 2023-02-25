@@ -21,10 +21,12 @@ public class UserAccountDto {
 
     Set<GenreTvDto> genreTvDtoSet;
 
+    Set<StreamingSubscriptionDto> streamingSubscriptionDtoSet;
+
     public UserAccountDto() {
     }
 
-    public UserAccountDto(Long idUser, String userName, String email, Integer birthYear, boolean adultContent, boolean enableAccount, Set<GenreMovieDto> genreMovieDtoSet, Set<GenreTvDto> genreTvDtoSet) {
+    public UserAccountDto(Long idUser, String userName, String email, Integer birthYear, boolean adultContent, boolean enableAccount, Set<GenreMovieDto> genreMovieDtoSet, Set<GenreTvDto> genreTvDtoSet, Set<StreamingSubscriptionDto> streamingSubscriptionDtoSet) {
         this.idUser = idUser;
         this.userName = userName;
         this.email = email;
@@ -33,6 +35,7 @@ public class UserAccountDto {
         this.enableAccount = enableAccount;
         this.genreMovieDtoSet = genreMovieDtoSet;
         this.genreTvDtoSet = genreTvDtoSet;
+        this.streamingSubscriptionDtoSet = streamingSubscriptionDtoSet;
     }
 
     public Long getIdUser() {
@@ -99,4 +102,11 @@ public class UserAccountDto {
         this.genreTvDtoSet = genreTvDtoSet;
     }
 
+    public Set<StreamingSubscriptionDto> getStreamingSubscriptionDtoSet() {
+        return streamingSubscriptionDtoSet;
+    }
+
+    public void setStreamingSubscriptionDtoSet(Set<StreamingSubscriptionDto> streamingSubscriptionDtoSet) {
+        this.streamingSubscriptionDtoSet = streamingSubscriptionDtoSet;
+    }
 }

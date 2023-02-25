@@ -15,6 +15,9 @@ public class UserAccountMapper {
     @Autowired
     GenreTvMapper tvMapper;
 
+    @Autowired
+    StreamingSubscriptionMapper streamingSubscriptionMapper;
+
 
 
     public UserAccountDto convertEntityToDto(UserAccount entity){
@@ -27,6 +30,7 @@ public class UserAccountMapper {
         dto.setBirthYear(entity.getBirthYear());
         dto.setGenreMovieDtoSet(movieMapper.convertListEntityToDto(entity.getGenreMovieSet()));
         dto.setGenreTvDtoSet(tvMapper.convertListEntityToDto(entity.getGenreTvSet()));
+        dto.setStreamingSubscriptionDtoSet(streamingSubscriptionMapper.convertListEntityToDto(entity.getStreamingSubscriptionSet()));
         return dto;
     }
 
@@ -40,6 +44,7 @@ public class UserAccountMapper {
         entity.setBirthYear(dto.getBirthYear());
         entity.setGenreMovieSet(movieMapper.convertListDtoToEntity(dto.getGenreMovieDtoSet()));
         entity.setGenreTvSet(tvMapper.convertListDtoToEntity(dto.getGenreTvDtoSet()));
+        entity.setStreamingSubscriptionSet(streamingSubscriptionMapper.convertListDtoToEntity(dto.getStreamingSubscriptionDtoSet()));
         return entity;
     }
 

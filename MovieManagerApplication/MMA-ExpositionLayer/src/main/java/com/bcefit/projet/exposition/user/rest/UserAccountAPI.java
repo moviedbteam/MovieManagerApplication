@@ -7,11 +7,12 @@ import com.bcefit.projet.service.user.IUserAccountService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -32,5 +33,27 @@ public class UserAccountAPI {
         UserAccount userAccount = service.findById(idUser);
         logger.debug("DEBUG---ID UserAccount = {}", userAccount.getIdUser());
         return mapper.convertEntityToDto(userAccount);
+    }
+
+    @PostMapping
+    public ResponseEntity<UserAccountDto> create(@RequestBody UserAccountDto userAccountDto){
+
+        logger.info("enregistrement d'un nouveau user account {}",userAccountDto.getUserName());
+
+        UserAccount userAccount=mapper.convertDtoToEntity(userAccountDto);
+
+        UserAccountDto dto=mapper.convertEntityToDto(service.createUserAccount(userAccount));
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(dto);
+    }
+
+    @GetMapping("/all")
+    public List<UserAccountDto> getAllUserAccounts(){logger.info("nouvelle demande de liste de user Account");
+        Iterable<UserAccount> iterable=service.findAll();
+        List<UserAccountDto> userAccountDtoList=new ArrayList<>();
+
+        iterable.forEach((pEntity)-> userAccountDtoList.add(mapper.convertEntityToDto(pEntity)));
+
+        return userAccountDtoList;
     }
 }

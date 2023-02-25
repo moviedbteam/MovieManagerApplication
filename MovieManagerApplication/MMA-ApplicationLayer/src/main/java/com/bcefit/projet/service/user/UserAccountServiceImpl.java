@@ -1,6 +1,5 @@
 package com.bcefit.projet.service.user;
 
-import com.bcefit.projet.domain.user.GenreMovie;
 import com.bcefit.projet.domain.user.UserAccount;
 import com.bcefit.projet.infrastructure.IUserAccountRepository;
 import org.slf4j.Logger;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class UserAccountServiceImpl implements IUserAccountService{
@@ -34,8 +32,8 @@ public class UserAccountServiceImpl implements IUserAccountService{
     }
 
     @Override
-    public void createUserAccount(UserAccount userAccount) {
-
+    public UserAccount createUserAccount(UserAccount userAccount) {
+        return repository.save(userAccount);
     }
 
     @Override
@@ -46,5 +44,10 @@ public class UserAccountServiceImpl implements IUserAccountService{
     @Override
     public void updateUserAccount(UserAccount userAccount) {
 
+    }
+
+    @Override
+    public Iterable<UserAccount> findAll() {
+        return repository.findAll();
     }
 }

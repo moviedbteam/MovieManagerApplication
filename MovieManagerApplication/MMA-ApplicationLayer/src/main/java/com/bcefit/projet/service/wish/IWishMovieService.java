@@ -10,4 +10,6 @@ public interface IWishMovieService {
     WishMovie findById(Long id);
 
     WishMovie createWishMovie(WishMovie wishMovie);
+
+    void deleteWishMovie(WishMovie wishMovie);
 }

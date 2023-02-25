@@ -7,6 +7,7 @@ import com.bcefit.projet.infrastructure.IWishMovieRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -21,6 +22,8 @@ public class WishMovieServiceServiceImpl implements IWishMovieService{
     @Autowired
     IWishMovieRepository repository;
 
+    @Autowired
+    JmsTemplate jmsTemplate;
 
 
     @Override
@@ -50,5 +53,14 @@ public class WishMovieServiceServiceImpl implements IWishMovieService{
     @Override
     public WishMovie createWishMovie(WishMovie wishMovie) {
         return repository.save(wishMovie);
+        // Envoie d'un message pour informer de l'ajout d'un film dans la wishList
+        //jmsTemplate.send("Q_ADD_Wish_MOVIE", new MessageString(wishMovieEntity.getUid()));
+    }
+
+    @Override
+    public void deleteWishMovie(WishMovie wishMovie) {
+        repository.delete(wishMovie);
+        // Envoie d'un message pour informer de l'ajout d'un film dans la wishList
+        //jmsTemplate.send("Q_ADD_Wish_MOVIE", new MessageString(wishMovieEntity.getUid()));
     }
 }

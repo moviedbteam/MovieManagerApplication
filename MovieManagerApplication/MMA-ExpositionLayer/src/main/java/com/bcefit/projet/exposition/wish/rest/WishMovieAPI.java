@@ -28,7 +28,7 @@ public class WishMovieAPI {
 
     Logger logger = LoggerFactory.getLogger(WishMovieAPI.class);
 
-    @GetMapping("/{idWishMovie}")
+    @GetMapping("/movie/{idWishMovie}")
     public WishMovieDto getWishMovieById(@PathVariable("idWishMovie") Long idWish){
         logger.info("Nouvelle demande pour le wish movie {}", idWish);
         WishMovie wishMovie = service.findById(idWish);
@@ -36,10 +36,10 @@ public class WishMovieAPI {
         return mapper.convertEntityToDto(wishMovie);
     }
 
-    @PostMapping
+    @PostMapping("/movie")
     public ResponseEntity<WishMovieDto> create(@RequestBody WishMovieDto wishMovieDto){
 
-        logger.info("enregistrement d'un nouveau wish movie {}",wishMovieDto.getIdWish());
+        logger.info("Nouvelle demande d'enregistrement wish movie {}",wishMovieDto.getIdWish());
 
         WishMovie wishMovie = mapper.convertDtoToEntity(wishMovieDto);
 
@@ -48,7 +48,7 @@ public class WishMovieAPI {
         return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/movie/all")
     public List<WishMovieDto> getAllWishMoviess(){logger.info("nouvelle demande de liste de wish movie");
         Iterable<WishMovie> iterable=service.findAllByUserAccountId(new UserAccount());
         List<WishMovieDto> wishMovieDtoList = new ArrayList<>();
@@ -56,6 +56,17 @@ public class WishMovieAPI {
         iterable.forEach((pEntity)-> wishMovieDtoList.add(mapper.convertEntityToDto(pEntity)));
 
         return wishMovieDtoList;
+    }
+
+    @DeleteMapping("/movie/{idWishMovie}")
+    public ResponseEntity<String> deleteWishMovie(@PathVariable Long idWishMovie){
+
+        logger.info("Nouvelle demande de suppression wish movie {}",idWishMovie);
+        WishMovie wishMovie = new WishMovie();
+        wishMovie.setIdWish(idWishMovie);
+        service.deleteWishMovie(wishMovie);
+
+        return new  ResponseEntity<>("Wish movie supprimé",HttpStatus.OK);
     }
 
 }

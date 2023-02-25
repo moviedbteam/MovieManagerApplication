@@ -22,6 +22,11 @@
             <groupId>com.bcefit.projet</groupId>
             <artifactId>MMA-InfrastructureLayer</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

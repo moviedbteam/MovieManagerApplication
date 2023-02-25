@@ -1,7 +1,11 @@
 package com.bcefit.projet.domain.user;
 
+import com.bcefit.projet.domain.wish.WishMovie;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -51,6 +55,9 @@ public class UserAccount {
             joinColumns =  { @JoinColumn(name = "id_user") },
             inverseJoinColumns = { @JoinColumn(name = "id") })
     private Set<StreamingSubscription> streamingSubscriptionSet= new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<WishMovie> wishMovieList = new ArrayList<>();
 
     public Long getIdUser() {
         return idUser;

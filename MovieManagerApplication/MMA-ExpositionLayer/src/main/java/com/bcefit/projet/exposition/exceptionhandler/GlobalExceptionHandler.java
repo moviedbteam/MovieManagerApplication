@@ -1,4 +1,4 @@
-package com.bcefit.projet.exposition.user.exceptionhandler;
+package com.bcefit.projet.exposition.exceptionhandler;
 
 import com.bcefit.projet.exposition.user.dto.MessageExceptionDto;
 import org.springframework.http.HttpStatus;

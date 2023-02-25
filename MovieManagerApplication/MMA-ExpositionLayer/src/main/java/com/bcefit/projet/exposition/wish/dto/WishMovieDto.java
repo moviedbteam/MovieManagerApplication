@@ -12,14 +12,14 @@ public class WishMovieDto {
 
     private UserAccount userAccount;
 
-    private Integer idMovie;
+    private Long idMovie;
 
-    private Integer idCollection;
+    private Long idCollection;
 
     public WishMovieDto() {
     }
 
-    public WishMovieDto(Long idWish, UserAccount userAccount, Integer idMovie, Integer idCollection) {
+    public WishMovieDto(Long idWish, UserAccount userAccount, Long idMovie, Long idCollection) {
         this.idWish = idWish;
         this.userAccount = userAccount;
         this.idMovie = idMovie;
@@ -35,19 +35,19 @@ public class WishMovieDto {
     }
 
 
-    public Integer getIdMovie() {
+    public Long getIdMovie() {
         return idMovie;
     }
 
-    public void setIdMovie(Integer idMovie) {
+    public void setIdMovie(Long idMovie) {
         this.idMovie = idMovie;
     }
 
-    public Integer getIdCollection() {
+    public Long getIdCollection() {
         return idCollection;
     }
 
-    public void setIdCollection(Integer idCollection) {
+    public void setIdCollection(Long idCollection) {
         this.idCollection = idCollection;
     }
 

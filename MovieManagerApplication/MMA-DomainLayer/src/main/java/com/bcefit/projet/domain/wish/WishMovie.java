@@ -9,12 +9,12 @@ import javax.persistence.Table;
 @Table(name = "wish_movie")
 public class WishMovie extends WishContent{
 
-    private Integer idMovie;
+    private Long idMovie;
 
-    private Integer idCollection;
+    private Long idCollection;
 
 
-    public WishMovie(Long idWish, UserAccount userAccount, Integer idMovie, Integer idCollection) {
+    public WishMovie(Long idWish, UserAccount userAccount, Long idMovie, Long idCollection) {
         super(idWish, userAccount);
         this.idMovie = idMovie;
         this.idCollection = idCollection;
@@ -24,19 +24,19 @@ public class WishMovie extends WishContent{
 
     }
 
-    public Integer getIdMovie() {
+    public Long getIdMovie() {
         return idMovie;
     }
 
-    public void setIdMovie(Integer idMovie) {
+    public void setIdMovie(Long idMovie) {
         this.idMovie = idMovie;
     }
 
-    public Integer getIdCollection() {
+    public Long getIdCollection() {
         return idCollection;
     }
 
-    public void setIdCollection(Integer idCollection) {
+    public void setIdCollection(Long idCollection) {
         this.idCollection = idCollection;
     }
 }

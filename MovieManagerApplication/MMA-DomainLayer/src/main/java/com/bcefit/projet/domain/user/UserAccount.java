@@ -1,5 +1,7 @@
 package com.bcefit.projet.domain.user;
 
+import com.bcefit.projet.domain.watch.WatchMovie;
+import com.bcefit.projet.domain.wish.WishEpisode;
 import com.bcefit.projet.domain.wish.WishMovie;
 
 import javax.persistence.*;
@@ -59,6 +61,12 @@ public class UserAccount {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<WishMovie> wishMovieList = new ArrayList<>();
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<WatchMovie> watchMovieList = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<WishEpisode> wishEpisodeList = new ArrayList<>();
+
     public Long getIdUser() {
         return idUser;
     }
@@ -68,15 +76,6 @@ public class UserAccount {
     }
 
     public UserAccount() {
-    }
-
-    public UserAccount(Long idUser, String userName, String email, Integer birthYear, boolean adultContent, boolean enableAccount) {
-        this.idUser = idUser;
-        this.userName = userName;
-        this.email = email;
-        this.birthYear = birthYear;
-        this.adultContent = adultContent;
-        this.enableAccount = enableAccount;
     }
 
     public UserAccount(Long idUser, String userName, String email, Integer birthYear, boolean adultContent, boolean enableAccount, Set<GenreMovie> genreMovieSet, Set<GenreTv> genreTvSet, Set<StreamingSubscription> streamingSubscriptionSet) {
@@ -154,5 +153,10 @@ public class UserAccount {
     public void setStreamingSubscriptionSet(Set<StreamingSubscription> streamingSubscriptionSet) {
         this.streamingSubscriptionSet = streamingSubscriptionSet;
     }
+
+    public List<WishMovie> getWishMovieList() {
+        return wishMovieList;
+    }
+
 }
 

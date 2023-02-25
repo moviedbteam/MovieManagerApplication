@@ -21,23 +21,23 @@ public class UserAccount {
 
     private boolean enableAccount;
 
-    @ManyToMany(fetch = FetchType.LAZY,
+    @ManyToMany(fetch = FetchType.EAGER,
             cascade = {
                     CascadeType.PERSIST,
                     CascadeType.MERGE
             })
-    @JoinTable(name = "UserAccount_GenreMovie",
+    @JoinTable(name = "user_account_genre_movie",
             joinColumns =  { @JoinColumn(name = "id_user") },
             inverseJoinColumns = { @JoinColumn(name = "id") })
     private Set<GenreMovie> genreMovieSet= new HashSet<>();
 
 
-    @ManyToMany(fetch = FetchType.LAZY,
+    @ManyToMany(fetch = FetchType.EAGER,
             cascade = {
                     CascadeType.PERSIST,
                     CascadeType.MERGE
             })
-    @JoinTable(name = "UserAccount_GenreTv",
+    @JoinTable(name = "user_account_genre_tv",
             joinColumns =  { @JoinColumn(name = "id_user") },
             inverseJoinColumns = { @JoinColumn(name = "id") })
     private Set<GenreTv> genreTvSet= new HashSet<>();
@@ -102,7 +102,7 @@ public class UserAccount {
         this.enableAccount = enableAccount;
     }
 
-
+/*
     public void addGenreMovie(GenreMovie genreMovie){
         this.genreMovieSet.add(genreMovie);
         genreMovie.getUserAccounts().add(this);
@@ -128,7 +128,7 @@ public class UserAccount {
             genreTv.getUserAccounts().remove(this);
         }
     }
-
+*/
 
     public void setGenreMovieSet(Set<GenreMovie> genreMovieSet) {
         this.genreMovieSet = genreMovieSet;
@@ -140,6 +140,10 @@ public class UserAccount {
 
     public void setGenreTvSet(Set<GenreTv> genreTvSet) {
         this.genreTvSet = genreTvSet;
+    }
+
+    public Set<GenreMovie> getGenreMovieSet() {
+        return genreMovieSet;
     }
 }
 

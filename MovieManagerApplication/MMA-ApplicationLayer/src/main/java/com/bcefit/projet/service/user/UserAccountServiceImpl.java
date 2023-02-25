@@ -1,5 +1,6 @@
 package com.bcefit.projet.service.user;
 
+import com.bcefit.projet.domain.user.GenreMovie;
 import com.bcefit.projet.domain.user.UserAccount;
 import com.bcefit.projet.infrastructure.IUserAccountRepository;
 import org.slf4j.Logger;

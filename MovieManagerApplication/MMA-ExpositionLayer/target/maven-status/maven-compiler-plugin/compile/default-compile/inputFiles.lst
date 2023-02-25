@@ -1,8 +1,0 @@
-/Users/renaudbrault/IdeaProjects/ProjetFinalEpita/Developpement/MovieManagerApplication/MMA-ExpositionLayer/src/main/java/com/bcefit/projet/exposition/Application.java
-/Users/renaudbrault/IdeaProjects/ProjetFinalEpita/Developpement/MovieManagerApplication/MMA-ExpositionLayer/src/main/java/com/bcefit/projet/exposition/security/JWTAuthorizationFilter.java
-/Users/renaudbrault/IdeaProjects/ProjetFinalEpita/Developpement/MovieManagerApplication/MMA-ExpositionLayer/src/main/java/com/bcefit/projet/exposition/security/SecurityConfiguration.java
-/Users/renaudbrault/IdeaProjects/ProjetFinalEpita/Developpement/MovieManagerApplication/MMA-ExpositionLayer/src/main/java/com/bcefit/projet/exposition/user/exceptionhandler/GlobalExceptionHandler.java
-/Users/renaudbrault/IdeaProjects/ProjetFinalEpita/Developpement/MovieManagerApplication/MMA-ExpositionLayer/src/main/java/com/bcefit/projet/exposition/user/dto/GenreMovieDto.java
-/Users/renaudbrault/IdeaProjects/ProjetFinalEpita/Developpement/MovieManagerApplication/MMA-ExpositionLayer/src/main/java/com/bcefit/projet/exposition/user/rest/GenreMovieAPI.java
-/Users/renaudbrault/IdeaProjects/ProjetFinalEpita/Developpement/MovieManagerApplication/MMA-ExpositionLayer/src/main/java/com/bcefit/projet/exposition/user/dto/MessageExceptionDto.java
-/Users/renaudbrault/IdeaProjects/ProjetFinalEpita/Developpement/MovieManagerApplication/MMA-ExpositionLayer/src/main/java/com/bcefit/projet/exposition/user/mapper/GenreMovieMapper.java

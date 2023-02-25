@@ -1,13 +1,11 @@
 package com.bcefit.projet.exposition.user.dto;
 
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class GenreMovieDto {
 
     private Long id;
     private String name;
+
 
     public GenreMovieDto() {
     }
@@ -34,5 +32,6 @@ public class GenreMovieDto {
     public void setName(String name) {
         this.name = name;
     }
+
 
 }

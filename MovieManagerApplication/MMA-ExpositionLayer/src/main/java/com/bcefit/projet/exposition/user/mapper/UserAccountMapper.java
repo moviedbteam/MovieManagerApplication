@@ -1,7 +1,7 @@
 package com.bcefit.projet.exposition.user.mapper;
 
-import com.bcefit.projet.domain.user.UserAccount;
 
+import com.bcefit.projet.domain.user.UserAccount;
 import com.bcefit.projet.exposition.user.dto.UserAccountDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,6 +25,8 @@ public class UserAccountMapper {
         dto.setEmail(entity.getEmail());
         dto.setEnableAccount(entity.isEnableAccount());
         dto.setBirthYear(entity.getBirthYear());
+        dto.setGenreMovieDtoSet(movieMapper.convertListEntityToDto(entity.getGenreMovieSet()));
+        dto.setGenreTvDtoSet(tvMapper.convertListEntityToDto(entity.getGenreTvSet()));
         return dto;
     }
 
@@ -36,10 +38,10 @@ public class UserAccountMapper {
         entity.setEmail(dto.getEmail());
         entity.setEnableAccount(dto.isEnableAccount());
         entity.setBirthYear(dto.getBirthYear());
+        entity.setGenreMovieSet(movieMapper.convertListDtoToEntity(dto.getGenreMovieDtoSet()));
+        entity.setGenreTvSet(tvMapper.convertListDtoToEntity(dto.getGenreTvDtoSet()));
         return entity;
     }
-
-
 
 
 }

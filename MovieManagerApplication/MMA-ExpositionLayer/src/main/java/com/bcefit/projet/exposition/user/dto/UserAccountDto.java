@@ -83,6 +83,20 @@ public class UserAccountDto {
         this.enableAccount = enableAccount;
     }
 
+    public Set<GenreMovieDto> getGenreMovieDtoSet() {
+        return genreMovieDtoSet;
+    }
 
+    public void setGenreMovieDtoSet(Set<GenreMovieDto> genreMovieDtoSet) {
+        this.genreMovieDtoSet = genreMovieDtoSet;
+    }
+
+    public Set<GenreTvDto> getGenreTvDtoSet() {
+        return genreTvDtoSet;
+    }
+
+    public void setGenreTvDtoSet(Set<GenreTvDto> genreTvDtoSet) {
+        this.genreTvDtoSet = genreTvDtoSet;
+    }
 
 }

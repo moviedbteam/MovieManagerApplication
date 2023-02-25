@@ -1,14 +1,15 @@
 package com.bcefit.projet.exposition.user.dto;
 
-import java.util.HashSet;
-import java.util.Set;
 
 public class GenreTvDto {
     private Long id;
     private String name;
 
+
     public GenreTvDto() {
     }
+
+
 
     public GenreTvDto(Long id, String name) {
         this.id = id;
@@ -26,5 +27,10 @@ public class GenreTvDto {
     public String getName() {
         return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
 }

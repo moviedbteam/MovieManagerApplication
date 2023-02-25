@@ -66,7 +66,7 @@ public class WishMovieAPI {
         wishMovie.setIdWish(idWishMovie);
         service.deleteWishMovie(wishMovie);
 
-        return new  ResponseEntity<>("Wish movie supprimé",HttpStatus.OK);
+        return new  ResponseEntity<>("Wish movie supprimé!",HttpStatus.OK);
     }
 
 }

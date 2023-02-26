@@ -1,6 +1,12 @@
 package com.bcefit.projet.infrastructure;
 
-import org.postgresql.util.LruCache;
+import com.bcefit.projet.domain.watch.WatchEpisode;
+import org.springframework.data.repository.CrudRepository;
 
-public interface IWatchEpisodeRepository /*extends LruCache.CreateAction<WatchEpisode , Long>*/ {
+import java.util.List;
+import java.util.Optional;
+
+public interface IWatchEpisodeRepository extends CrudRepository<WatchEpisode, Long> {
+
+    Optional<List<WatchEpisode>> findWatchEpisodesByUserAccount(Long Long);
 }

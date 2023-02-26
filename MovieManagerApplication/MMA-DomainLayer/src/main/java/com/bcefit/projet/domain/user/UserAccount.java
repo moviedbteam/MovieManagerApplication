@@ -1,5 +1,6 @@
 package com.bcefit.projet.domain.user;
 
+import com.bcefit.projet.domain.watch.WatchEpisode;
 import com.bcefit.projet.domain.watch.WatchMovie;
 import com.bcefit.projet.domain.wish.WishEpisode;
 import com.bcefit.projet.domain.wish.WishMovie;
@@ -57,7 +58,7 @@ public class UserAccount {
             joinColumns =  { @JoinColumn(name = "id_user") },
             inverseJoinColumns = { @JoinColumn(name = "id") })
     private Set<StreamingSubscription> streamingSubscriptionSet= new HashSet<>();
-
+/*
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<WishMovie> wishMovieList = new ArrayList<>();
 
@@ -67,6 +68,9 @@ public class UserAccount {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<WishEpisode> wishEpisodeList = new ArrayList<>();
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<WatchEpisode> watchEpisodeList = new ArrayList<>();
+*/
     public Long getIdUser() {
         return idUser;
     }
@@ -153,10 +157,39 @@ public class UserAccount {
     public void setStreamingSubscriptionSet(Set<StreamingSubscription> streamingSubscriptionSet) {
         this.streamingSubscriptionSet = streamingSubscriptionSet;
     }
-
+/*
     public List<WishMovie> getWishMovieList() {
         return wishMovieList;
     }
 
+    public void setWishMovieList(List<WishMovie> wishMovieList) {
+        this.wishMovieList = wishMovieList;
+    }
+
+    public List<WatchMovie> getWatchMovieList() {
+        return watchMovieList;
+    }
+
+    public void setWatchMovieList(List<WatchMovie> watchMovieList) {
+        this.watchMovieList = watchMovieList;
+    }
+
+    public List<WishEpisode> getWishEpisodeList() {
+        return wishEpisodeList;
+    }
+
+    public void setWishEpisodeList(List<WishEpisode> wishEpisodeList) {
+        this.wishEpisodeList = wishEpisodeList;
+    }
+
+    public List<WatchEpisode> getWatchEpisodeList() {
+        return watchEpisodeList;
+    }
+
+    public void setWatchEpisodeList(List<WatchEpisode> watchEpisodeList) {
+        this.watchEpisodeList = watchEpisodeList;
+    }
+
+ */
 }
 

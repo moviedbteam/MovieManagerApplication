@@ -1,13 +1,12 @@
 package com.bcefit.projet.exposition.wish.mapper;
 
-import com.bcefit.projet.domain.wish.WishContent;
 import com.bcefit.projet.domain.wish.WishMovie;
 import com.bcefit.projet.exposition.wish.dto.WishMovieDto;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+
 
 @Component
 public class WishMovieMapper {

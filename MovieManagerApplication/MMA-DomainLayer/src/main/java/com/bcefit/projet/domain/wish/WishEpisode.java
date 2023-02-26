@@ -13,20 +13,20 @@ public class WishEpisode extends WishContent{
 
     private Long idSeason;
 
-    private Long IdTv;
+    private Long idTv;
 
 
     public WishEpisode(Long idWish, UserAccount userAccount, Long idEpisode, Long idSeason, Long idTv) {
         super(idWish, userAccount);
         this.idEpisode = idEpisode;
         this.idSeason = idSeason;
-        IdTv = idTv;
+        this.idTv = idTv;
     }
 
     public WishEpisode(Long idEpisode, Long idSeason, Long idTv) {
         this.idEpisode = idEpisode;
         this.idSeason = idSeason;
-        IdTv = idTv;
+        this.idTv = idTv;
     }
 
     public WishEpisode() {
@@ -50,10 +50,10 @@ public class WishEpisode extends WishContent{
     }
 
     public Long getIdTv() {
-        return IdTv;
+        return idTv;
     }
 
     public void setIdTv(Long idTv) {
-        IdTv = idTv;
+        this.idTv = idTv;
     }
 }

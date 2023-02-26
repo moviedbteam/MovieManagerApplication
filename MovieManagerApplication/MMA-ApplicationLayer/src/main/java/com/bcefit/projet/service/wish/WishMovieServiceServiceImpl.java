@@ -4,6 +4,7 @@ package com.bcefit.projet.service.wish;
 import com.bcefit.projet.domain.user.UserAccount;
 import com.bcefit.projet.domain.wish.WishMovie;
 import com.bcefit.projet.infrastructure.IWishMovieRepository;
+import com.bcefit.projet.service.message.MessageString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,10 @@ public class WishMovieServiceServiceImpl implements IWishMovieService{
 
     @Override
     public Iterable<WishMovie> findAllByUserAccountId(UserAccount userAccount) {
-        Optional<List<WishMovie>> WishMovieList = repository.findWishMoviesByUserAccount(userAccount.getIdUser());
+        Optional<List<WishMovie>> wishMovieList = repository.findWishMoviesByUserAccount(userAccount.getIdUser());
         logger.debug("service findbyId {}", userAccount.getIdUser());
-        if (WishMovieList.isPresent()) {
-            return WishMovieList.get();
+        if (wishMovieList.isPresent()) {
+            return wishMovieList.get();
         } else {
             logger.error("pas de wish movie avec l'id user {}", userAccount.getIdUser());
             throw new EntityNotFoundException("Pas de wish movie en base");
@@ -54,13 +55,13 @@ public class WishMovieServiceServiceImpl implements IWishMovieService{
     public WishMovie createWishMovie(WishMovie wishMovie) {
         return repository.save(wishMovie);
         // Envoie d'un message pour informer de l'ajout d'un film dans la wishList
-        //jmsTemplate.send("Q_ADD_Wish_MOVIE", new MessageString(wishMovieEntity.getUid()));
+        //jmsTemplate.send("Q_ADD_Wish_MOVIE", new MessageString(wishMovie.toString()));
     }
 
     @Override
     public void deleteWishMovie(WishMovie wishMovie) {
         repository.delete(wishMovie);
-        // Envoie d'un message pour informer de l'ajout d'un film dans la wishList
-        //jmsTemplate.send("Q_ADD_Wish_MOVIE", new MessageString(wishMovieEntity.getUid()));
+        // Envoie d'un message pour informer de la suppression d'un film dans la wishList
+        //jmsTemplate.send("Q_DELETE_Wish_MOVIE", new MessageString(wishMovie.toString()));
     }
 }

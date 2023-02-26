@@ -1,6 +1,13 @@
 package com.bcefit.projet.infrastructure;
 
+import com.bcefit.projet.domain.wish.WishEpisode;
+import com.bcefit.projet.domain.wish.WishMovie;
 import org.springframework.data.repository.CrudRepository;
 
-public interface IWishEpisodeRepository /*extends CrudRepository<WischEpisode, Long>*/ {
+import java.util.List;
+import java.util.Optional;
+
+public interface IWishEpisodeRepository extends CrudRepository<WishEpisode, Long> {
+
+    Optional<List<WishEpisode>> findWishEpisodesByUserAccount(Long Long);
 }

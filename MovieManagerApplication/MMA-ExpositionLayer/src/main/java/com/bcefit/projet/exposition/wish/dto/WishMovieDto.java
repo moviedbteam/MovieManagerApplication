@@ -2,9 +2,6 @@ package com.bcefit.projet.exposition.wish.dto;
 
 import com.bcefit.projet.domain.user.UserAccount;
 
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 public class WishMovieDto {
 

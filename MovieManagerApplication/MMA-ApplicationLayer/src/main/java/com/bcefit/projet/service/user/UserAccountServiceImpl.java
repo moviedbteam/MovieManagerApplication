@@ -33,6 +33,8 @@ public class UserAccountServiceImpl implements IUserAccountService{
 
     @Override
     public UserAccount createUserAccount(UserAccount userAccount) {
+
+
         return repository.save(userAccount);
     }
 
@@ -42,8 +44,11 @@ public class UserAccountServiceImpl implements IUserAccountService{
     }
 
     @Override
-    public void updateUserAccount(UserAccount userAccount) {
+    public UserAccount updateUserAccount(UserAccount userAccount) {
 
+     Integer i = repository.userAccountUpdate(userAccount.getUserName(), userAccount.getBirthYear(), userAccount.isAdultContent(), userAccount.getIdUser());
+     System.out.println("i = "+i);
+     return userAccount;
     }
 
     @Override

@@ -8,9 +8,10 @@ public interface IUserAccountService {
 
     UserAccount createUserAccount(UserAccount userAccount);
 
+
     void deleteUserAccount(UserAccount userAccount);
 
-    void updateUserAccount(UserAccount userAccount);
+    UserAccount updateUserAccount(UserAccount userAccount);
 
     Iterable<UserAccount> findAll();
 }

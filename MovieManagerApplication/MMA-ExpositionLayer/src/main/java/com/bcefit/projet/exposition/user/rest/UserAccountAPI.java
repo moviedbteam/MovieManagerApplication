@@ -4,6 +4,7 @@ import com.bcefit.projet.domain.user.UserAccount;
 import com.bcefit.projet.exposition.user.dto.UserAccountDto;
 import com.bcefit.projet.exposition.user.mapper.UserAccountMapper;
 import com.bcefit.projet.service.user.IUserAccountService;
+import com.bcefit.projet.service.user.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/v1/userAccount")
 public class UserAccountAPI {
 
     @Autowired
@@ -36,16 +37,17 @@ public class UserAccountAPI {
     }
 
     @PostMapping
-    public ResponseEntity<UserAccountDto> create(@RequestBody UserAccountDto userAccountDto){
+    public ResponseEntity<UserAccountDto> update(@RequestBody UserAccountDto userAccountDto){
 
-        logger.info("enregistrement d'un nouveau user account {}",userAccountDto.getUserName());
+        logger.info("modification du user account {}",userAccountDto.getUserName());
 
         UserAccount userAccount=mapper.convertDtoToEntity(userAccountDto);
 
-        UserAccountDto dto=mapper.convertEntityToDto(service.createUserAccount(userAccount));
+        UserAccountDto dto=mapper.convertEntityToDto(service.updateUserAccount(userAccount));
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(dto);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(dto);
     }
+
 
     @GetMapping("/all")
     public List<UserAccountDto> getAllUserAccounts(){logger.info("nouvelle demande de liste de user Account");

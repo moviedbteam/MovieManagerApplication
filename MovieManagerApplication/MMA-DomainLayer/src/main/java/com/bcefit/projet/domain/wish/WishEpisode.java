@@ -4,6 +4,7 @@ import com.bcefit.projet.domain.user.UserAccount;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "wish_episode")
@@ -15,9 +16,8 @@ public class WishEpisode extends WishContent{
 
     private Long idTv;
 
-
-    public WishEpisode(Long idWish, UserAccount userAccount, Long idEpisode, Long idSeason, Long idTv) {
-        super(idWish, userAccount);
+    public WishEpisode(Long idWish, UserAccount userAccount, LocalDate dateWsih, Long idEpisode, Long idSeason, Long idTv) {
+        super(idWish, userAccount, dateWsih);
         this.idEpisode = idEpisode;
         this.idSeason = idSeason;
         this.idTv = idTv;

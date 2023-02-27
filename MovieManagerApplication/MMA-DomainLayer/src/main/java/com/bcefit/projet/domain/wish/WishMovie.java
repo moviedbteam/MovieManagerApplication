@@ -4,6 +4,7 @@ import com.bcefit.projet.domain.user.UserAccount;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "wish_movie")
@@ -14,14 +15,22 @@ public class WishMovie extends WishContent{
     private Long idCollection;
 
 
-    public WishMovie(Long idWish, UserAccount userAccount, Long idMovie, Long idCollection) {
-        super(idWish, userAccount);
+    public WishMovie(Long idWish, UserAccount userAccount, LocalDate dateWsih, Long idMovie, Long idCollection) {
+        super(idWish, userAccount, dateWsih);
         this.idMovie = idMovie;
         this.idCollection = idCollection;
     }
 
-    public WishMovie() {
+    public WishMovie(Long idMovie, Long idCollection) {
+        this.idMovie = idMovie;
+        this.idCollection = idCollection;
+    }
 
+    public WishMovie(Long idWish, UserAccount userAccount) {
+        super(idWish, userAccount);
+    }
+
+    public WishMovie() {
     }
 
     public Long getIdMovie() {

@@ -2,6 +2,9 @@ package com.bcefit.projet.exposition.watch.dto;
 
 import com.bcefit.projet.domain.user.UserAccount;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class WatchEpisodeDto {
 
     private Long idWatch;
@@ -14,15 +17,18 @@ public class WatchEpisodeDto {
 
     private Long IdTv;
 
+    private LocalDate dateWatch;
+
     public WatchEpisodeDto() {
     }
 
-    public WatchEpisodeDto(Long idWatch, UserAccount userAccount, Long idEpisode, Long idSeason, Long idTv) {
+    public WatchEpisodeDto(Long idWatch, UserAccount userAccount, Long idEpisode, Long idSeason, Long idTv, LocalDate dateWatch) {
         this.idWatch = idWatch;
         this.userAccount = userAccount;
         this.idEpisode = idEpisode;
         this.idSeason = idSeason;
         IdTv = idTv;
+        this.dateWatch = dateWatch;
     }
 
     public Long getIdWatch() {
@@ -63,5 +69,13 @@ public class WatchEpisodeDto {
 
     public void setIdTv(Long idTv) {
         IdTv = idTv;
+    }
+
+    public LocalDate getDateWatch() {
+        return dateWatch;
+    }
+
+    public void setDateWatch(LocalDate dateWatch) {
+        this.dateWatch = dateWatch;
     }
 }

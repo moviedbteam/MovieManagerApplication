@@ -11,13 +11,15 @@ import java.util.List;
 public class WatchMovieMapper {
 
     public WatchMovieDto convertEntityToDto(WatchMovie entity){
-        return new WatchMovieDto(entity.getIdWatch(),
-                                entity.getUserAccount(),
-                                entity.getViewingPlace(),
-                                entity.getViewingMood(),
-                                entity.getViewingRate(),
-                                entity.getIdMovie(),
-                                entity.getIdCollection());
+        WatchMovieDto dto = new WatchMovieDto();
+        dto.setIdWatch(entity.getIdWatch());
+        dto.setUserAccount(entity.getUserAccount());
+        dto.setViewingPlace(entity.getViewingPlace());
+        dto.setViewingMood(entity.getViewingMood());
+        dto.setViewingRate(entity.getViewingRate());
+        dto.setIdMovie(entity.getIdMovie());
+        dto.setIdCollection(entity.getIdCollection());
+        return dto;
     }
 
     public WatchMovie convertDtoToEntity(WatchMovieDto dto){
@@ -29,6 +31,7 @@ public class WatchMovieMapper {
         entity.setViewingMood(dto.getViewingMood());
         entity.setViewingRate(dto.getViewingRate());
         entity.setViewingPlace(dto.getViewingPlace());
+        entity.setDateWatch(dto.getDateWatch());
         return entity;
     }
 

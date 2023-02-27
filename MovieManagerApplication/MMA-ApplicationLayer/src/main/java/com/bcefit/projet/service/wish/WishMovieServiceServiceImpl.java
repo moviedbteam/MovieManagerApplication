@@ -12,6 +12,8 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,6 +55,8 @@ public class WishMovieServiceServiceImpl implements IWishMovieService{
 
     @Override
     public WishMovie createWishMovie(WishMovie wishMovie) {
+        LocalDate actualDate = LocalDate.now();
+        wishMovie.setDateWsih(actualDate);
         return repository.save(wishMovie);
         // Envoie d'un message pour informer de l'ajout d'un film dans la wishList
         //jmsTemplate.send("Q_ADD_Wish_MOVIE", new MessageString(wishMovie.toString()));
@@ -64,4 +68,5 @@ public class WishMovieServiceServiceImpl implements IWishMovieService{
         // Envoie d'un message pour informer de la suppression d'un film dans la wishList
         //jmsTemplate.send("Q_DELETE_Wish_MOVIE", new MessageString(wishMovie.toString()));
     }
+
 }

@@ -1,8 +1,11 @@
 package com.bcefit.projet.domain.watch;
 
 import com.bcefit.projet.domain.user.UserAccount;
+import net.bytebuddy.asm.Advice;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @MappedSuperclass
 public abstract class WatchContent {
@@ -16,7 +19,7 @@ public abstract class WatchContent {
     private UserAccount userAccount;
 
 
-
+    private LocalDate dateWatch;
 
 
     private String viewingPlace;
@@ -36,9 +39,11 @@ public abstract class WatchContent {
         this.idWatch = idWatch;
         this.userAccount = userAccount;
     }
-    public WatchContent(Long idWatch, UserAccount userAccount, String viewingPlace, Integer viewingRate, Integer viewingMood) {
+
+    public WatchContent(Long idWatch, UserAccount userAccount, LocalDate dateWatch, String viewingPlace, Integer viewingRate, Integer viewingMood) {
         this.idWatch = idWatch;
         this.userAccount = userAccount;
+        this.dateWatch = dateWatch;
         this.viewingPlace = viewingPlace;
         this.viewingRate = viewingRate;
         this.viewingMood = viewingMood;
@@ -82,6 +87,14 @@ public abstract class WatchContent {
 
     public void setViewingMood(Integer viewingMood) {
         this.viewingMood = viewingMood;
+    }
+
+    public LocalDate getDateWatch() {
+        return dateWatch;
+    }
+
+    public void setDateWatch(LocalDate dateWatch) {
+        this.dateWatch = dateWatch;
     }
 }
 

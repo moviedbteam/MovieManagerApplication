@@ -3,6 +3,8 @@ package com.bcefit.projet.domain.wish;
 import com.bcefit.projet.domain.user.UserAccount;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @MappedSuperclass
 public abstract class WishContent {
@@ -15,6 +17,13 @@ public abstract class WishContent {
     @JoinColumn(name = "id_user")
     private UserAccount userAccount;
 
+    private LocalDate dateWsih;
+
+    public WishContent(Long idWish, UserAccount userAccount, LocalDate dateWsih) {
+        this.idWish = idWish;
+        this.userAccount = userAccount;
+        this.dateWsih = dateWsih;
+    }
 
     public WishContent(Long idWish, UserAccount userAccount) {
         this.idWish = idWish;
@@ -41,4 +50,11 @@ public abstract class WishContent {
         this.idWish = idWish;
     }
 
+    public LocalDate getDateWsih() {
+        return dateWsih;
+    }
+
+    public void setDateWsih(LocalDate dateWsih) {
+        this.dateWsih = dateWsih;
+    }
 }

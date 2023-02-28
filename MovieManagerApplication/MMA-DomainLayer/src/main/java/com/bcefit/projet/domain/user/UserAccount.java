@@ -18,6 +18,8 @@ public class UserAccount {
     @Column(name = "id_user", nullable = false)
     private Long idUser;
 
+    private String loggin;
+
     private String userName;
 
     private String email;
@@ -58,19 +60,7 @@ public class UserAccount {
             joinColumns =  { @JoinColumn(name = "id_user") },
             inverseJoinColumns = { @JoinColumn(name = "id") })
     private Set<StreamingSubscription> streamingSubscriptionSet= new HashSet<>();
-/*
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<WishMovie> wishMovieList = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<WatchMovie> watchMovieList = new ArrayList<>();
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<WishEpisode> wishEpisodeList = new ArrayList<>();
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<WatchEpisode> watchEpisodeList = new ArrayList<>();
-*/
     public Long getIdUser() {
         return idUser;
     }
@@ -82,8 +72,9 @@ public class UserAccount {
     public UserAccount() {
     }
 
-    public UserAccount(Long idUser, String userName, String email, Integer birthYear, boolean adultContent, boolean enableAccount, Set<GenreMovie> genreMovieSet, Set<GenreTv> genreTvSet, Set<StreamingSubscription> streamingSubscriptionSet) {
+    public UserAccount(Long idUser, String loggin, String userName, String email, Integer birthYear, boolean adultContent, boolean enableAccount, Set<GenreMovie> genreMovieSet, Set<GenreTv> genreTvSet, Set<StreamingSubscription> streamingSubscriptionSet) {
         this.idUser = idUser;
+        this.loggin = loggin;
         this.userName = userName;
         this.email = email;
         this.birthYear = birthYear;
@@ -157,39 +148,13 @@ public class UserAccount {
     public void setStreamingSubscriptionSet(Set<StreamingSubscription> streamingSubscriptionSet) {
         this.streamingSubscriptionSet = streamingSubscriptionSet;
     }
-/*
-    public List<WishMovie> getWishMovieList() {
-        return wishMovieList;
+
+    public String getLoggin() {
+        return loggin;
     }
 
-    public void setWishMovieList(List<WishMovie> wishMovieList) {
-        this.wishMovieList = wishMovieList;
+    public void setLoggin(String loggin) {
+        this.loggin = loggin;
     }
-
-    public List<WatchMovie> getWatchMovieList() {
-        return watchMovieList;
-    }
-
-    public void setWatchMovieList(List<WatchMovie> watchMovieList) {
-        this.watchMovieList = watchMovieList;
-    }
-
-    public List<WishEpisode> getWishEpisodeList() {
-        return wishEpisodeList;
-    }
-
-    public void setWishEpisodeList(List<WishEpisode> wishEpisodeList) {
-        this.wishEpisodeList = wishEpisodeList;
-    }
-
-    public List<WatchEpisode> getWatchEpisodeList() {
-        return watchEpisodeList;
-    }
-
-    public void setWatchEpisodeList(List<WatchEpisode> watchEpisodeList) {
-        this.watchEpisodeList = watchEpisodeList;
-    }
-
- */
 }
 

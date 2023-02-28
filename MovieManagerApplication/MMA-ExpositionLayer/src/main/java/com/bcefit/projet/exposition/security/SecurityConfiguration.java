@@ -17,9 +17,10 @@ public class SecurityConfiguration {
     }
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        //http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/produit/all").hasRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/produit/**").hasAnyRole("ADMIN","USER");
-        http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/v1/produit").hasRole("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/*").hasRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/v1/*").hasRole("USER");
+        //http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/produit/**").hasAnyRole("ADMIN","USER");
+        //http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/v1/produit").hasRole("ADMIN");
         http.addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
         http.csrf().disable();
         http.formLogin().disable();

@@ -33,7 +33,9 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
         JWTVerifier verifier = JWT.require(Algorithm.HMAC256("monSecret123456789")).build();
         String token = bearerToken.substring("Bearer ".length());
         DecodedJWT decodedJWT = verifier.verify(token);
+        // récupéreration du loggin pour l'ajouter à la requetes => sera utilisé par les services backend pour l'identification user
         String username = decodedJWT.getSubject();
+        System.out.println("userName : "+username);
 
         //on récupère les rôle
         List<String> roles = decodedJWT.getClaims().get("claims").asList(String.class);
@@ -47,6 +49,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
                 new UsernamePasswordAuthenticationToken(username, null, authorities);
 
         SecurityContextHolder.getContext().setAuthentication(user);
+
         filterChain.doFilter(request, response);
     }
 }

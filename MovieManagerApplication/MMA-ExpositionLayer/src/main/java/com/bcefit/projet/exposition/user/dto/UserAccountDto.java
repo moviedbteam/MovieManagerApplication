@@ -4,6 +4,8 @@ import java.util.Set;
 
 public class UserAccountDto {
 
+    private String loggin;
+
     private Long idUser;
 
     private String userName;
@@ -26,7 +28,8 @@ public class UserAccountDto {
     public UserAccountDto() {
     }
 
-    public UserAccountDto(Long idUser, String userName, String email, Integer birthYear, boolean adultContent, boolean enableAccount, Set<GenreMovieDto> genreMovieDtoSet, Set<GenreTvDto> genreTvDtoSet, Set<StreamingSubscriptionDto> streamingSubscriptionDtoSet) {
+    public UserAccountDto(String loggin, Long idUser, String userName, String email, Integer birthYear, boolean adultContent, boolean enableAccount, Set<GenreMovieDto> genreMovieDtoSet, Set<GenreTvDto> genreTvDtoSet, Set<StreamingSubscriptionDto> streamingSubscriptionDtoSet) {
+        this.loggin = loggin;
         this.idUser = idUser;
         this.userName = userName;
         this.email = email;
@@ -108,5 +111,13 @@ public class UserAccountDto {
 
     public void setStreamingSubscriptionDtoSet(Set<StreamingSubscriptionDto> streamingSubscriptionDtoSet) {
         this.streamingSubscriptionDtoSet = streamingSubscriptionDtoSet;
+    }
+
+    public String getLoggin() {
+        return loggin;
+    }
+
+    public void setLoggin(String loggin) {
+        this.loggin = loggin;
     }
 }

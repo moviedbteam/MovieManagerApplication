@@ -60,7 +60,7 @@ jobs:
           cache: maven
       - name: Create env file
         run: |
-          echo "${{ secrets.ENV_FILE_MMA }}" > ./src/main/resources/env.properties
+          echo "${{ secrets.ENV_FILE_MMA }}" > ./MovieManagerApplication/MMA-ExpositionLayer/src/main/resources/env.properties
 
       - name: Build Maven
         run: mvn clean package

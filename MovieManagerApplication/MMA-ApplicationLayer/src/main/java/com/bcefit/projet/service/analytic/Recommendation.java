@@ -1,8 +1,9 @@
-package com.bcefit.projet.service.wish;
+package com.bcefit.projet.service.analytic;
 
 
 import com.bcefit.projet.domain.user.UserAccount;
 import com.bcefit.projet.domain.wish.WishEpisode;
+import com.bcefit.projet.service.wish.IWishEpisodeService;
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.TmdbTV;
 import info.movito.themoviedbapi.TmdbTvSeasons;

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/MovieManagerApplication/BatchModule-MMA/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MovieManagerApplication/BatchModule-MMA/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MovieManagerApplication/MMA-ApplicationLayer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MovieManagerApplication/MMA-ApplicationLayer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MovieManagerApplication/MMA-DomainLayer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MovieManagerApplication/MMA-DomainLayer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MovieManagerApplication/MMA-ExpositionLayer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MovieManagerApplication/MMA-ExpositionLayer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MovieManagerApplication/MMA-InfrastructureLayer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MovieManagerApplication/MMA-InfrastructureLayer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MovieManagerApplication/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MovieManagerApplication/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

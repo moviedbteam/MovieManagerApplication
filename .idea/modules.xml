@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MovieManagerApplication/BatchModule-MMA/BatchModule-MMA.iml" filepath="$PROJECT_DIR$/MovieManagerApplication/BatchModule-MMA/BatchModule-MMA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MovieManagerApplication/MMA-ApplicationLayer/MMA-ApplicationLayer.iml" filepath="$PROJECT_DIR$/MovieManagerApplication/MMA-ApplicationLayer/MMA-ApplicationLayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MovieManagerApplication/MMA-DomainLayer/MMA-DomainLayer.iml" filepath="$PROJECT_DIR$/MovieManagerApplication/MMA-DomainLayer/MMA-DomainLayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MovieManagerApplication/MMA-ExpositionLayer/MMA-ExpositionLayer.iml" filepath="$PROJECT_DIR$/MovieManagerApplication/MMA-ExpositionLayer/MMA-ExpositionLayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MovieManagerApplication/MMA-InfrastructureLayer/MMA-InfrastructureLayer.iml" filepath="$PROJECT_DIR$/MovieManagerApplication/MMA-InfrastructureLayer/MMA-InfrastructureLayer.iml" />
+    </modules>
+  </component>
+</project>
